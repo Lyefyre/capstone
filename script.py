@@ -108,13 +108,22 @@ class HashMap:
         return
 
 
-print("Welcome to the SoHo Restauran!")
 
-print("What type of food would you like to eat? Type the beginning of the food to see, if it is available!)"
+print("                *               ")
+print("  *             *            *  ")
+print("  *             *            *  ")
+print("  *             *            *  ")
+print(" ***           ***          *** ")
+print("*****         *****        *****")
+print("********************************")
+print("********************************")
+print("********************************")
+print("********************************")
+print("________________________________")
+print("*                              *")
+print("*                              *")
+print("* Welcome to SoHo Restaurants! *")
+print("*                              *")
+print("*______________________________*")
 
-for food_type in type_of_restaurant:
-    linkedlist = LinkedList()
-    for restaurant in restaurant_data:
-        if food_type == restaurant[0]:
-            linkedlist.insert_beginning(restaurant)
-    print(linkedlist.stringify_list())
+
