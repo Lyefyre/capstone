@@ -5,13 +5,13 @@ class Node():
         self.value = value
         self.next_node = next_node
 
-    def getValue(self):
+    def get_value(self):
         return self.value
 
-    def getNextNode(self):
+    def get_next_node(self):
         return self.next_node
 
-    def setNextNode(self, next_node):
+    def set_next_node(self, next_node):
         self.next_node = next_node
 
 
@@ -19,21 +19,21 @@ class LinkedList():
     def __init__(self, value=None):
         self.head_node = Node(value)
 
-    def getHeadNode(self):
+    def get_head_node(self):
         return self.head_node
 
-    def insertBeginning(self, new_value):
+    def insert_beginning(self, new_value):
         new_node = Node(new_value)
-        new_node.setNextNode(self.next_node)
+        new_node.set_next_node(self.next_node)
         self.head_node = new_node
 
-    def stringifyList(self):
+    def stringify_list(self):
         string_list = ""
-        merker = self.getHeadNode()
+        merker = self.get_head_node()
         while merker:
-            if merker.getValue() is not None:
-                string_list += str(merker.getValue()) + "\n"
-            merker = merker.getNextNode()
+            if merker.get_value() is not None:
+                string_list += str(merker.get_value()) + "\n"
+            merker = merker.get_next_node()
         return string_list
 
 
@@ -85,39 +85,36 @@ class HashMap:
         array_index = self.compressor(self.hash(key))
         possible_return_value = self.array[array_index]
 
-    if possible_return_value is None:
-        return None
+        if possible_return_value is None:
+            return None
 
-    if possible_return_value[0] == key:
-        return possible_return_value[1]
+        if possible_return_value[0] == key:
+            return possible_return_value[1]
 
-    retrieval_collisions = 1
+        retrieval_collisions = 1
 
-    while (possible_return_value != key):
-        new_hash_code = self.hash(key, retrieval_collisions)
-        retrieving_array_index = self.compressor(new_hash_code)
-        possible_return_value = self.array[retrieving_array_index]
+        while (possible_return_value != key):
+            new_hash_code = self.hash(key, retrieval_collisions)
+            retrieving_array_index = self.compressor(new_hash_code)
+            possible_return_value = self.array[retrieving_array_index]
 
-      if possible_return_value is None:
-        return None
+            if possible_return_value is None:
+                return None
 
-      if possible_return_value[0] == key:
-        return possible_return_value[1]
+            if possible_return_value[0] == key:
+                return possible_return_value[1]
 
-      retrieval_collisions += 1
-
-    return
-
-
-hash_map = HashMap(15)
-hash_map.assign('asian', 'Meng-Fao')
-hash_map.assign('german', 'Brezlstube')
-hash_map.assign('greek', 'Athens')
-print(hash_map.retrieve('asian'))
-print(hash_map.retrieve('german'))
-print(hash_map.retrieve('greek'))
+            retrieval_collisions += 1
+        return
 
 
 print("Welcome to the SoHo Restauran!")
-print("""What type of food would you like to eat?
-Type the beginning of the food to see, if it is available!""")
+
+print("What type of food would you like to eat? Type the beginning of the food to see, if it is available!)"
+
+for food_type in type_of_restaurant:
+    linkedlist = LinkedList()
+    for restaurant in restaurant_data:
+        if food_type == restaurant[0]:
+            linkedlist.insert_beginning(restaurant)
+    print(linkedlist.stringify_list())
