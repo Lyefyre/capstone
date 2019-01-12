@@ -1,4 +1,4 @@
-import from data
+from data import *
 
 class Node():
     def __init__(self, value, next_node=None):
@@ -37,7 +37,14 @@ class LinkedList():
         return string_list
 
 
+class HashMap():
+    def __init__(self, array_size):
+        self.array_size = array_size
+        self.array = [None for array in range(self.array_size)]
+    
+    
 print("Welcome to the SoHo Restauran!")
 print("""What type of food would you like to eat?
 Type the beginning of the food to see, if it is available!""")
+
 
