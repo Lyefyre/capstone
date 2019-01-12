@@ -1,4 +1,4 @@
-from data import *
+##from data import *
 
 class Node():
     def __init__(self, value, next_node=None):
@@ -42,9 +42,28 @@ class HashMap():
         self.array_size = array_size
         self.array = [None for array in range(self.array_size)]
     
+    def hash(self, key):
+        key_bytes = key.encode()
+        hash_code = sum(key_bytes)
+        return hash_code
+        
+    def compressor(self, hash_code):
+        return hash_code % self.array_size
+        
+    def assign(self, key, value):
+        self.value = self.compressor(self.hash(key))
+        self.array = value
+    
+    def retrieve(self, key):
+        array_index = self.compressor(self.hash(key))
+        return self.array[array_index]
+    
     
 print("Welcome to the SoHo Restauran!")
 print("""What type of food would you like to eat?
 Type the beginning of the food to see, if it is available!""")
 
+hash_map = HashMap(20)
+hash_map.assign('asian', 'Meng-Fao')
+print(hash_map.retrieve('asian'))
 
