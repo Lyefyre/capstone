@@ -1,3 +1,5 @@
+import from data
+
 class Node():
     def __init__(self, value, next_node=None):
         self.value = value
@@ -38,3 +40,4 @@ class LinkedList():
 print("Welcome to the SoHo Restauran!")
 print("""What type of food would you like to eat?
 Type the beginning of the food to see, if it is available!""")
+
