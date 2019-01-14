@@ -1,4 +1,6 @@
 from data import *
+from trie import Trie
+
 
 class Node():
     def __init__(self, value, next_node=None):
@@ -108,7 +110,6 @@ class HashMap:
         return
 
 
-
 print("                *               ")
 print("  *             *            *  ")
 print("  *             *            *  ")
@@ -126,4 +127,8 @@ print("* Welcome to SoHo Restaurants! *")
 print("*                              *")
 print("*______________________________*")
 
-
+while True:
+    user_input = str(input("\nSearch for a food type here. \nType 'quit' anytime to exit.\n")).lower()
+    if user_input == 'quit':
+        print("Thanks for using SoHo Restaurants.")
+        exit()
