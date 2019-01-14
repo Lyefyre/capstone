@@ -13,13 +13,13 @@ class Trie:
                 isWord = False
                 break
 
-    if not isWord:
-        while i < len(word):
-            current_node.addChild(word[i])
-            current_node = current_node.children[word[i]]
-            i += 1
+        if not isWord:
+            while i < len(word):
+                current_node.addChild(word[i])
+                current_node = current_node.children[word[i]]
+                i += 1
 
-    current_node.word = word
+        current_node.word = word
 
     def find_words(self, prefix):
         words = []
